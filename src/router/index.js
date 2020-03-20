@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Cart from '../ShoppingCart.vue'
+import ShoppingCart from '../views/ShoppingCart.vue'
 
 Vue.use(VueRouter)
 
@@ -22,7 +22,7 @@ const routes = [
   {
     path: '/cart',
     name: 'Cart',
-    component: Cart
+    component: ShoppingCart
     },
 ]
 
@@ -31,5 +31,6 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-
 export default router
+
+

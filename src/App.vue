@@ -1,49 +1,47 @@
 <template>
-  <div id="app">
+  <div id="app" class="background">
     <div class="row mb-3">
       <div class="col-md-9">
-        <router-link to="/cart">
+        <router-link to="/">
           <div class="menu-item browse">
-            <router-link to="/cart">Cart ({{ numInCart }})</router-link>
+            <p class="menu">Home</p>
           </div>
         </router-link>
-        <h1>My online store</h1>
+        <router-link to="/about">
+          <div class="menu-item browse">
+            <p class="menu">Sales</p>
+          </div>
+        </router-link>
+        <router-link to="/cart">
+          <div class="menu-item browse">
+            <p class="menu">Cart</p>
+          </div>
+        </router-link>
       </div>
+      <h1 class="title">My Online Store</h1>
       <span class="avatar"><img src="./assets/home_pic.jpg" alt="" /></span>
       <div class="col-md-3">
       </div>
     </div>
 
-    <div class="row">
-      <item
-        v-for="item in forSale"
-        :key="item.id"
-        :id="item.id"
-        :name="item.name"
-        :image="item.image"
-        :price="item.price" />
-    </div>
-
+    
+    <router-view> </router-view>
     <!-- No more inCart -->
+    <footer id="footer">
+      <div class="container_footer">
+        <div class="box1_footer">
+          <h4>Contact Us</h4>
+          <p>Email: wanluanlee@gmail.com</p>
+        </div>
+        <div class="box2_footer">
+          <h4>Git hub</h4>
+            <a href="https://github.com/wanluanlee/creative3" class="social-round-icon white-round-icon fa-icon" title=""> Click here
+            </a>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
-
-<script>
-import item from './components/item.vue';
-//import ShoppingCart from './ShoppingCart.vue';
-export default {
-  name: 'App',
-  computed: {
-    forSale() { return this.$store.getters.forSale; },
-    inCart() { return this.$store.getters.inCart; },
-  },
-  components: {
-    item,
-    //ShoppingCart,
-  },
-  
-}
-</script>
 
 <style>
 #app {
@@ -54,6 +52,19 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.title {
+    color: white;
+    font-size: 50px;
+    font-family: Snell Roundhand, cursive
+  }
+
+  .menu
+  {
+    color: white;
+    font-size: 25px;
+    font-family: Snell Roundhand, cursive
+  }
 
 .avatar img {
       border-radius: 100%;
@@ -84,6 +95,46 @@ export default {
 
 .background
   {
-    background-image: url('/Users/wanluanlee/Documents/vue/american-web/public/images/background.jpg');
+    background-image: url('/images/background.jpg');
+  }
+
+  .col-md-9
+  {
+    display: flex;
+  justify-content: space-around
+  }
+  .card-title .card-text
+    {
+      color: white;
+      font-size: 20px;
+      font-family: Snell Roundhand, cursive
+    }
+
+    #footer {
+  text-align: center;
+  padding: 4em 0 4em 0;
+}
+
+  #footer:before {
+    content: '';
+    border-top: solid 1px rgba(255, 255, 255, 0.25);
+    width: 10em;
+    display: block;
+    margin: 0 auto 3em auto;
+  }
+
+  #footer p
+  {
+    color: white;
+    font-size: 20px;
+    font-family: Snell Roundhand, cursive;
+  }
+
+  #footer h4
+  {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Snell Roundhand, cursive;
   }
 </style>
