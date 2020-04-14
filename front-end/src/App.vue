@@ -17,6 +17,11 @@
             <p class="menu">Cart</p>
           </div>
         </router-link>
+        <router-link to="/comment">
+          <div class="menu-item browse">
+            <p class="menu">Comment</p>
+          </div>
+        </router-link>
       </div>
       <h1 class="title">My Online Store</h1>
       <span class="avatar"><img src="./assets/home_pic.jpg" alt="" /></span>
@@ -55,7 +60,7 @@
 
 .title {
     color: white;
-    font-size: 50px;
+    font-size: 80px;
     font-family: Snell Roundhand, cursive
   }
 
